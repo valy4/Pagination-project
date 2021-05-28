@@ -12,7 +12,6 @@
   content: "";
   display: table;
   clear: both;
-  font-size: 15rem;
 }
 .col {
   float: left;
@@ -27,4 +26,15 @@
 .box {
   border: 1px solid #f52878;
   margin: 5rem;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+  justify-content: center;
+  font-size: 2rem;
+}
+.mapBtn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
