@@ -21,19 +21,19 @@ function MainContent() {
   for (let i = 1; i <= nrPages; i++) {
     pagesList.push(i)
   }
+
   return (
     <div>
       <h1 className="subtitle">Pride and Prejudice</h1>
       <div className="box">
         <div className="row" style={{ backgroundColor: "#f52878" }}>
           <h4 className="col left">Title</h4>
-          <h4 className="col right">Year</h4>
+          <h4 className="col right">Release Year</h4>
         </div>
         {listFilm.map(function (film) {
           return (
             <div className="row" style={{ backgroundColor: "#fee9f1" }}>
               <p className="col left" >{film.Title}</p>
-
               <p className="col right">{film.Year}</p>
             </div>
           );
@@ -41,24 +41,21 @@ function MainContent() {
       </div>
       <div className="buttons">
 
-        <button style={{ backgroundColor: currentPage ? "#f52878" : "#fee9f1" }} onClick={(event) => setCurrentPage(1)}>First</button>
-        <button style={{ backgroundColor: currentPage ? "#f52878" : "#fee9f1" }} onClick={(event) => setCurrentPage(Math.abs(currentPage - 1))}>prev</button>
+        <button className="btn" style={{ backgroundColor: "#fee9f1", cursor: "pointer" }} onClick={(event) => setCurrentPage(1)}>First</button>
+        <button style={{ backgroundColor: "#fee9f1", cursor: "pointer" }} onClick={(event) => setCurrentPage(Math.abs(currentPage - 1))}>prev</button>
         <div className="mapBtn">
           {pagesList.map(page => {
-            return <button style={{ backgroundColor: page === currentPage ? "#f52878" : "#fee9f1", fontSize: "2rem" }} onClick={(event) => setCurrentPage(page)}>{page}</button>
+            return <button style={{ backgroundColor: page === currentPage ? "#f52878" : "#fee9f1", fontSize: "2rem", cursor: "pointer" }} onClick={(event) => setCurrentPage(page)}>{page}</button>
 
           })}
         </div>
-        <button style={{ backgroundColor: currentPage ? "#f52878" : "#fee9f1" }} onClick={(event) => setCurrentPage(Math.abs(currentPage + 1))}>next</button>
-        <button style={{ backgroundColor: currentPage ? "#f52878" : "#fee9f1" }} onClick={(event) => setCurrentPage(4)}>Last</button>
+        <button style={{ backgroundColor: "#fee9f1", cursor: "pointer", hover: "#f52878" }} onClick={(event) => setCurrentPage(Math.abs(currentPage + 1))} disabled={currentPage === nrPages}>next</button>
+        <button style={{ backgroundColor: "#fee9f1", cursor: "pointer" }} onClick={(event) => setCurrentPage(nrPages)} disabled={currentPage === nrPages}>Last</button>
       </div>
     </div >
   );
 }
 
 export default MainContent;
-// const Buttons = styled.div`
 
-
-// `
 
