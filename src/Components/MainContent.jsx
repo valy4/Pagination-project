@@ -9,7 +9,7 @@ function MainContent() {
 
   useEffect(() => {
     fetch(
-      `http://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
+      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
     )
       .then((response) => response.json())
       .then((data) => {
