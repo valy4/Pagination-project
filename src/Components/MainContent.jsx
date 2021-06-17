@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import image from "../Images/picture-sorry.png"
 
 function MainContent() {
   const [search, setSearch] = useState("pride and prejudice");
@@ -9,7 +10,7 @@ function MainContent() {
 
   useEffect(() => {
     fetch(
-      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&plot=full&apikey=20b3b01a`
+      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -25,7 +26,7 @@ function MainContent() {
   }
   function getMovies(event) {
     fetch(
-      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&plot=full&apikey=20b3b01a`
+      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
     )
       .then((response) => response.json())
 
@@ -33,7 +34,7 @@ function MainContent() {
         setListFilm(data.Search);
         const temp = Math.ceil(data.totalResults / 10);
         setNrPages(temp);
-        console.log(data);
+        // console.log(data);
         const pagesList = [];
         for (let i = 1; i <= nrPages; i++) {
           pagesList.push(i);
@@ -45,7 +46,7 @@ function MainContent() {
 
   return (
     <div>
-      <div>
+      <div className="search-section">
         <Field
           onChange={(event) => setSearch(event.target.value)}
           type="text "
@@ -59,7 +60,9 @@ function MainContent() {
         {listFilm?.map(function (film) {
           return (
             <div className="row" style={{ backgroundColor: "#003566" }}>
-              <img className="col left" src={film.Poster}></img>
+              {!film.Poster &&
+                <img className="col left" src={image} alt={film.Title}></img>}
+              <img className="col left" src={film.Poster} alt={film.Title}></img>
               <div className="col right">
                 <p >{film.Title}</p>
                 <p >{film.Year}</p>

@@ -35,6 +35,10 @@ p {
   float: right;
   width: 40%;
 }
+.search-section {
+  display: flex;
+  justify-content: center;
+}
 .box {
   border: 1px solid #003566;
   margin: 5rem;
@@ -53,4 +57,12 @@ p {
 }
 .button:hover {
   background-color: #ffd60a;
+}
+.footer {
+  height: 3rem;
+  background-color: #000814;
+  color: #ffc300;
+  font-size: 0.8rem;
+  text-align: center;
+  align-content: center;
 }
