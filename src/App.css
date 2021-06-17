@@ -2,11 +2,12 @@
   text-align: justify;
   background-color: #003566;
 }
-img {
-  width: 350px;
+img.poster {
+  width: 20%;
   height: 350px;
   object-fit: fill;
 }
+
 p {
   color: #ffd60a;
 }
@@ -18,14 +19,14 @@ p {
 }
 .subtitle {
 }
-.row:after {
-  content: "";
-  display: table;
+.row {
   clear: both;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 .col {
-  margin-left: 10rem;
+  margin-left: 5rem;
 }
 .left {
   /* width: 300px; */

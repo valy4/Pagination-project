@@ -61,8 +61,8 @@ function MainContent() {
           return (
             <div className="row" style={{ backgroundColor: "#003566" }}>
               {!film.Poster &&
-                <img className="col left" src={image} alt={film.Title}></img>}
-              <img className="col left" src={film.Poster} alt={film.Title}></img>
+                <img className="col left poster" src={image} alt={film.Title}></img>}
+              <img className="col left poster" src={film.Poster} alt={film.Title}></img>
               <div className="col right">
                 <p >{film.Title}</p>
                 <p >{film.Year}</p>
