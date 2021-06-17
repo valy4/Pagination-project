@@ -9,7 +9,7 @@ function MainContent() {
 
   useEffect(() => {
     fetch(
-      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
+      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&plot=full&apikey=20b3b01a`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -25,7 +25,7 @@ function MainContent() {
   }
   function getMovies(event) {
     fetch(
-      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&apikey=20b3b01a`
+      `https://www.omdbapi.com/?s=${search}&page=${currentPage}&plot=full&apikey=20b3b01a`
     )
       .then((response) => response.json())
 
@@ -55,16 +55,15 @@ function MainContent() {
       </div>
 
       <div className="box">
-        <div className="row" style={{ backgroundColor: "#f52878" }} >
 
-          <h4 className="col left">Title</h4>
-          <h4 className="col right">Release Year</h4>
-        </div>
         {listFilm?.map(function (film) {
           return (
-            <div className="row" style={{ backgroundColor: "#fee9f1" }}>
-              <p className="col left">{film.Title}</p>
-              <p className="col right">{film.Year}</p>
+            <div className="row" style={{ backgroundColor: "#003566" }}>
+              <img className="col left" src={film.Poster}></img>
+              <div className="col right">
+                <p >{film.Title}</p>
+                <p >{film.Year}</p>
+              </div>
             </div>
           );
         })}
@@ -72,14 +71,14 @@ function MainContent() {
       <div className="buttons">
         <button
           className="btn"
-          style={{ backgroundColor: "#fee9f1", cursor: "pointer" }}
+          style={{ backgroundColor: "#ffd60a", cursor: "pointer" }}
           onClick={(event) => setCurrentPage(1)}
           disabled={currentPage === 1}
         >
           First
         </button>
         <button
-          style={{ backgroundColor: "#fee9f1", cursor: "pointer" }}
+          style={{ backgroundColor: "#ffd60a", cursor: "pointer" }}
           onClick={(event) => setCurrentPage(Math.abs(currentPage - 1))}
           disabled={currentPage === 1}
         >
@@ -90,7 +89,7 @@ function MainContent() {
             return (
               <button
                 style={{
-                  backgroundColor: page === currentPage ? "#f52878" : "#fee9f1",
+                  backgroundColor: page === currentPage ? "#ffc300" : "#ffd60a",
                   fontSize: "2rem",
                   cursor: "pointer",
                 }}
@@ -103,14 +102,14 @@ function MainContent() {
           })}
         </div>
         <Btn
-          style={{ backgroundColor: "#fee9f1", cursor: "pointer" }}
+          style={{ backgroundColor: "#ffd60a", cursor: "pointer" }}
           onClick={(event) => setCurrentPage(Math.abs(currentPage + 1))}
           disabled={currentPage === nrPages}
         >
           next
         </Btn>
         <button
-          style={{ backgroundColor: "#fee9f1", cursor: "pointer" }}
+          style={{ backgroundColor: "#ffd60a", cursor: "pointer" }}
           onClick={(event) => setCurrentPage(nrPages)}
           disabled={currentPage === nrPages}
         >
@@ -125,15 +124,26 @@ export default MainContent;
 
 
 const Btn = styled.button`
-  background-color: #fee9f1;
-  cursor: pointer;
-`;
+      background-color: #ffc300;
+      cursor: pointer;
+      `;
 const Field = styled.input`
-font-size: 1.5rem;
+      font-size: 1.5rem;
+      border-radius: 2rem;
+      width: 30rem;
+      height: 2rem;
+      border: none;
 
-`;
+
+
+      `;
 const BtnSearch = styled.button`
-font-size:1.5rem;
- background-color: #fee9f1;
-  cursor: pointer;
-`;
+      font-size: 1.5rem;
+      background-color: #ffc300;
+      cursor: pointer;
+      border-radius: 2rem;
+      width: 8rem;
+      height: 2.5rem;
+
+
+      `;
