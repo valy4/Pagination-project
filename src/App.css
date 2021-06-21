@@ -50,6 +50,7 @@ p {
   flex-direction: row;
   margin: 2rem;
   justify-content: center;
+  align-items: center;
   font-size: 2rem;
 }
 .mapBtn {
@@ -60,10 +61,10 @@ p {
   background-color: #ffd60a;
 }
 .footer {
-  height: 3rem;
+  height: 2rem;
   background-color: #000814;
   color: #ffc300;
   font-size: 0.8rem;
   text-align: center;
-  align-content: center;
+  padding-top: 1rem;
 }

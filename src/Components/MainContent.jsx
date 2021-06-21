@@ -48,9 +48,10 @@ function MainContent() {
         <Field
           onChange={(event) => setSearch(event.target.value)}
           type="text "
+          data-cy="movie-search"
           placeholder="Search movie..."
         />
-        <BtnSearch onClick={getMovies}>Search</BtnSearch>
+        <BtnSearch data-cy="btn-search" onClick={getMovies}>Search</BtnSearch>
       </div>
 
       <div className="box">
@@ -85,7 +86,7 @@ function MainContent() {
         <div className="buttons">
           <BtnEnd
             className="btn"
-
+            data-cy="btn-first"
             onClick={(event) => setCurrentPage(1)}
             disabled={currentPage === 1}
           >
@@ -101,17 +102,20 @@ function MainContent() {
           <div className="mapBtn">
             {pagesList.map((page) => {
               return (
-                <button
+                <Btn
                   style={{
                     backgroundColor:
-                      page === currentPage ? "#ffc300" : "#ffd60a",
+                      page === currentPage ? "#ffc300" : "#ffd60aac",
+                    borderColor:
+                      page === currentPage ? "#ffc300" : "#ffd60aac",
                     fontSize: "2rem",
                     cursor: "pointer",
                   }}
+                  data-cy={`btn-page-${page}`}
                   onClick={() => setCurrentPage(page)}
                 >
                   {page}
-                </button>
+                </Btn>
               );
             })}
           </div>
@@ -123,15 +127,16 @@ function MainContent() {
             next
           </BtnEnd>
           <BtnEnd
-
+            data-cy="btn-last"
             onClick={(event) => setCurrentPage(nrPages)}
             disabled={currentPage === nrPages}
           >
             Last
           </BtnEnd>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
 
@@ -139,26 +144,41 @@ export default MainContent;
 
 const Btn = styled.button`
   background-color: #ffc300;
+  border-color: #ffc300;
   cursor: pointer;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-style: solid;
 `;
+
 const Field = styled.input`
-  font-size: 1.5rem;
-  border-radius: 2rem;
+  font-size: 1.0rem;
+  border-radius: 10px;
   width: 30rem;
   height: 2rem;
   border: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+
 `;
+
 const BtnSearch = styled.button`
-  font-size: 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
   background-color: #ffc300;
+  border: solid 1px #ffc300;
   cursor: pointer;
-  border-radius: 2rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
   width: 8rem;
   height: 2.5rem;
   &:hover {
     background: #ffd60a;
   }
 `;
+
 const Sorry = styled.div`
   font-size: 3rem;
   color: #ffd60a;
